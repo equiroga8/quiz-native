@@ -1,7 +1,7 @@
 import { combineReducers } from 'redux';
 
 import { QUESTION_ANSWER, CHANGE_QUESTION, SUBMIT, REQUEST_QUESTIONS, 
-	INIT_QUESTIONS} from './actions';
+	INIT_QUESTIONS, ADD_STORE, REMOVE_STORE} from './actions';
 
 function score(state = 0, action = {}) {
 	switch(action.type) {
@@ -62,11 +62,22 @@ function questions(state = [], action = {}) {
 	}
 }
 
-function loading(state = true, action = {}) {
+function loading(state = false, action = {}) {
 	switch(action.type) {
 		case REQUEST_QUESTIONS:
 			return true;
 		case INIT_QUESTIONS:
+			return false;	
+		default:
+			return state;
+	}
+}
+
+function areQuestionsStored(state = false, action = {}) {
+	switch(action.type) {
+		case ADD_STORE:
+			return true;
+		case REMOVE_STORE:
 			return false;	
 		default:
 			return state;
@@ -79,7 +90,8 @@ const GlobalState = (combineReducers({
 	finished,
 	currentQuestion,
 	questions,
-	loading
+	loading, 
+	areQuestionsStored
 }));
 
 export default GlobalState;

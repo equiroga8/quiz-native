@@ -1,11 +1,12 @@
 import React from 'react';
-import { Text, View } from 'react-native';
+import { Image } from 'react-native';
 
+import { styles } from '../styles/StyleSheet';
 
 export default class QuestionAttachment extends React.Component {
   render() {
     return (
-      <Text> QuestionAttachment </Text>
+      <Image style = {styles.questionAttachment} source = {{ uri: this.props.imageUrl }}/>
     );
   }
 }

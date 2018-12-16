@@ -10,7 +10,6 @@ export const mockQuestions =[
 		"url":"https://res.cloudinary.com/core-upm/image/upload/v1533288622/core/quiz2018/attachments/sgfjokgmrrtjibavxruz.jpg"},
 		"favourite":false,
 		"tips":[]},
-
 	{
 		"id":4,
 		"question":"Capital of France",

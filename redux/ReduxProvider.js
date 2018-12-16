@@ -15,7 +15,8 @@ export default class ReduxProvider extends React.Component {
 			finished: false, 
 			currentQuestion: 0, 
 			questions: [ ...mockQuestions ],
-			loading: false
+			loading: false, 
+			areQuestionsStored: false
 		};
 		
 		this.store = this.configureStore();

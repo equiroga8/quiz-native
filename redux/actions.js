@@ -3,6 +3,8 @@ export const CHANGE_QUESTION = 'CHANGE_QUESTION';
 export const SUBMIT = 'SUBMIT';
 export const REQUEST_QUESTIONS = 'REQUEST_QUESTIONS';
 export const INIT_QUESTIONS = 'INIT_QUESTIONS';
+export const REMOVE_STORE = 'REMOVE_STORE';
+export const ADD_STORE = 'ADD_STORE';
 
 const URL = 'https://quiz2019.herokuapp.com/api/quizzes/random10wa?token=f80ca6727cd7421aa815';
 
@@ -24,4 +26,12 @@ export function requestQuestions() {
 
 export function receiveQuestions(json) {
 	return { type: INIT_QUESTIONS, questions: json}
+}
+
+export function removeStore() {
+	return { type: REMOVE_STORE}
+}
+
+export function addStore() {
+	return { type: ADD_STORE}
 }
