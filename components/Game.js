@@ -30,7 +30,7 @@ export default class Game extends React.Component {
 				loading = {this.props.loading}
 				score = {this.props.score}
 				finished = {this.props.finished}/>
-				<Text>{this.props.areQuestionsStored}</Text> 
+				
 				<ActionBar gamePress = {this.gamePress} currentQuestion = {this.props.currentQuestion}
 				 finished = {this.props.finished} areQuestionsStored = {this.props.areQuestionsStored}/>
 			</View>      

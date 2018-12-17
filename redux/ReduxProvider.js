@@ -7,7 +7,10 @@ import { createStore } from 'redux';
 
 import { mockQuestions } from "../assets/mock-data";
 
+import Navigator from '../components/Navigator';
+
 export default class ReduxProvider extends React.Component {
+
 	constructor(props) {
 		super(props);
 		this.initialState = { 
@@ -16,7 +19,7 @@ export default class ReduxProvider extends React.Component {
 			currentQuestion: 0, 
 			questions: [ ...mockQuestions ],
 			loading: false, 
-			areQuestionsStored: false
+			areQuestionsStored: true
 		};
 		
 		this.store = this.configureStore();
@@ -26,7 +29,7 @@ export default class ReduxProvider extends React.Component {
 
 		return (
 			<Provider store={ this.store }>
-				<MainScreen/>
+				<Navigator/>
 			</Provider>		
 		);
 	}

@@ -109,6 +109,7 @@ class MainScreen extends React.Component {
     return (
       	<View style={styles.mainScreen}>
 			     <NavBar />
+           <Text>Hola {this.props.areQuestionsStored.toString()}</Text> 
 			     <Game question = {this.props.questions[this.props.currentQuestion]}
             currentQuestion = {this.props.currentQuestion} 
             score = {this.props.score} 
@@ -131,3 +132,7 @@ function mapStateToProps(state) {
 
 export default connect(mapStateToProps)(MainScreen);
 
+
+/*
+
+*/
