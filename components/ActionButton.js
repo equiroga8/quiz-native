@@ -12,11 +12,11 @@ export default class ActionButton extends React.Component {
 	}
 
 	onPress(){
-		this.props.abPress(this.props.buttonName);
+		this.props.buttonPress(this.props.buttonName);
 	}
 	render() {
 		return (
-			<Button title= {this.props.buttonName} color = "#841584" onPress = {this.onPress} disabled = {this.props.isDisabled}/>
+			<Button title= {this.props.buttonName} color = "#9121C1" onPress = {this.onPress} disabled = {this.props.isDisabled}/>
 			);
 	}
 }

@@ -5,18 +5,10 @@ import { styles } from '../styles/StyleSheet';
 import QuestionAttachment from './QuestionAttachment';
 import Question from './Question';
 import Answer from './Answer';
+import Tips from './Tips';
 
 export default class Content extends React.Component {
-
-
-    constructor(props) {
-        super(props);
-        this.contentAnswer = this.contentAnswer.bind(this);
-    }
     
-    contentAnswer(input) {
-        this.props.gameAnswer(input);
-    }
     render() {
 
         if (this.props.loading) {
@@ -31,7 +23,7 @@ export default class Content extends React.Component {
             return (
                 <View style = {styles.content}>
                     <Image style = {styles.questionAttachment} source = {require('../assets/gameOver.jpg')}/>
-                    <Text>Score: {this.props.score}</Text>
+                    <Text style = {styles.scoreText}>Score: {this.props.score}</Text>
                 </View>
                 );
 
@@ -41,7 +33,8 @@ export default class Content extends React.Component {
                 <QuestionAttachment imageUrl = {this.props.question.attachment.url}/>
                 <Question question = {this.props.question.question} 
                 currentQuestion = {this.props.currentQuestion}/>
-                <Answer contentAnswer = {this.contentAnswer} userAnswer = {this.props.question.userAnswer}/>
+                <Answer onInputChange = {this.props.onInputChange} userAnswer = {this.props.question.userAnswer}/>
+                <Tips tips = {this.props.question.tips} />
              </View>	
              );
         }

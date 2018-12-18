@@ -1,13 +1,28 @@
 import React from 'react';
-import MainScreen from '../components/MainScreen';
 
 import { Provider } from 'react-redux';
 import GlobalState from './reducers';
 import { createStore } from 'redux';
 
 import { mockQuestions } from "../assets/mock-data";
+import { createStackNavigator, createAppContainer } from 'react-navigation';
+import MainScreen from '../components/MainScreen';
+import StartScreen from '../components/StartScreen';
 
-import Navigator from '../components/Navigator';
+
+const AppNavigator = createStackNavigator({
+	MainScreen: { 
+		screen: MainScreen 
+	},
+	StartScreen: {
+		screen: StartScreen
+	}
+},{
+	initialRouteName: 'StartScreen',
+	headerMode: 'none'
+});
+
+const AppContainer = createAppContainer(AppNavigator);
 
 export default class ReduxProvider extends React.Component {
 
@@ -29,7 +44,7 @@ export default class ReduxProvider extends React.Component {
 
 		return (
 			<Provider store={ this.store }>
-				<Navigator/>
+				<AppContainer />
 			</Provider>		
 		);
 	}

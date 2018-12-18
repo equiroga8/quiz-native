@@ -1,4 +1,4 @@
-import { Text, View, AsyncStorage } from 'react-native';
+import { Text, View, AsyncStorage, StatusBar } from 'react-native';
 
 import React from 'react';
 import { connect } from 'react-redux';
@@ -13,8 +13,8 @@ class MainScreen extends React.Component {
 
   constructor(props) {
     super(props);
-    this.appPress = this.appPress.bind(this);
-    this.appAnswer = this.appAnswer.bind(this);
+    this.buttonPress = this.buttonPress.bind(this);
+    this.onInputChange = this.onInputChange.bind(this);
   }
 
   componentDidMount(){
@@ -67,9 +67,12 @@ class MainScreen extends React.Component {
     } catch(error) {}
   }
 
-  appPress(buttonAction){
+  buttonPress(buttonAction){
 
     switch (buttonAction) {
+      case "Return":
+        this.props.navigation.navigate('StartScreen');
+        break;
       case "Submit":
         var ans = []
         var userAns = []
@@ -101,22 +104,22 @@ class MainScreen extends React.Component {
     }
   }
 
-  appAnswer(answer){
+  onInputChange(answer){
     this.props.dispatch(questionAnswer(this.props.currentQuestion, answer));
   }
 
   render() {
     return (
       	<View style={styles.mainScreen}>
+           <StatusBar hidden />
 			     <NavBar />
-           <Text>Hola {this.props.areQuestionsStored.toString()}</Text> 
 			     <Game question = {this.props.questions[this.props.currentQuestion]}
             currentQuestion = {this.props.currentQuestion} 
             score = {this.props.score} 
             finished = {this.props.finished}
             loading = {this.props.loading}
-            appPress = {this.appPress}
-            appAnswer = {this.appAnswer}
+            buttonPress = {this.buttonPress}
+            onInputChange = {this.onInputChange}
             areQuestionsStored = {this.props.areQuestionsStored}
            />
       	</View>

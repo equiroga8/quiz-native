@@ -7,7 +7,7 @@ export default class NavBar extends React.Component {
   render() {
     return (
     	<View style= {styles.navBar}> 
-    		<Text> QUIZ game</Text> 
+    		<Text style= {styles.navBarText} > QUIZ game</Text> 
     	</View>      
     );
   }

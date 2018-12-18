@@ -1,6 +1,6 @@
 import React from 'react';
-import { Button } from 'react-native';
-
+import { Button, View, StatusBar, Image } from 'react-native';
+import NavBar from './NavBar';
 import { styles } from '../styles/StyleSheet';
 
 export default class StartScreen extends React.Component {
@@ -15,11 +15,15 @@ export default class StartScreen extends React.Component {
 	}
 	render() {
 		return (
-			<Button title= "Start" color = "#841584" onPress = {this.onPress}/>
+			<View style={styles.startScreen}>
+				<StatusBar hidden />
+				<NavBar/>
+				<View style={styles.startScreenContainer}>
+					<Image style = {styles.startImage} source = {require('../assets/quiz.png')}/>
+					<Button color = '#9121C1' title= "Start" onPress = {this.onPress}/>
+				</View>
+				
+			</View>
 			);
 	}
 }
-
-/*, {score: this.props.score, finished: this.props.finished, 
-			currentQuestion: this.props.currentQuestion, questions: this.props.questions, 
-			loading: this.props.loading, areQuestionsStored: this.props.areQuestionsStored}*/

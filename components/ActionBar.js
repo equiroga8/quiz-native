@@ -6,16 +6,6 @@ import ActionButton from './ActionButton';
 
 export default class ActionBar extends React.Component {
 
-    constructor(props) {
-        super(props);
-        this.abPress = this.abPress.bind(this);
-    }
-
-    abPress(buttonAction){
-        this.props.gamePress(buttonAction);
-    }
-
-
     render() {
 
         let submitDisabled = this.props.finished;
@@ -25,15 +15,15 @@ export default class ActionBar extends React.Component {
         return (
            <View style = {styles.actionBar}>
             <View style = {styles.firstButtonGroup}>
-                <ActionButton buttonName = "Return" abPress = {this.abPress}/>  
-                <ActionButton buttonName = "Previous" abPress = {this.abPress} isDisabled = {previousDisabled}/> 
-                <ActionButton buttonName = "Next" abPress = {this.abPress} isDisabled = {nextDisabled}/>
-                <ActionButton buttonName = "Submit" abPress = {this.abPress} isDisabled = {submitDisabled}/>    
+                <ActionButton buttonName = "Return" buttonPress = {this.props.buttonPress}/>  
+                <ActionButton buttonName = "Previous" buttonPress = {this.props.buttonPress} isDisabled = {previousDisabled}/> 
+                <ActionButton buttonName = "Next" buttonPress = {this.props.buttonPress} isDisabled = {nextDisabled}/>
+                <ActionButton buttonName = "Submit" buttonPress = {this.props.buttonPress} isDisabled = {submitDisabled}/>    
             </View>
             <View style = {styles.secondButtonGroup}>
-                <ActionButton buttonName = "Save" abPress = {this.abPress}/> 
-                <ActionButton buttonName = "Load" abPress = {this.abPress} isDisabled = {!this.props.areQuestionsStored}/> 
-                <ActionButton buttonName = "Remove" abPress = {this.abPress} isDisabled = {!this.props.areQuestionsStored}/>
+                <ActionButton buttonName = "Save" buttonPress = {this.props.buttonPress}/> 
+                <ActionButton buttonName = "Load" buttonPress = {this.props.buttonPress} isDisabled = {!this.props.areQuestionsStored}/> 
+                <ActionButton buttonName = "Remove" buttonPress = {this.props.buttonPress} isDisabled = {!this.props.areQuestionsStored}/>
                  
             </View>
            </View>		
